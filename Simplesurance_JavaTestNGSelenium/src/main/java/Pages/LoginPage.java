@@ -7,6 +7,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import static Util.CustomActions.waitAndClick;
+
 public class LoginPage extends TestBase {
 
 
@@ -30,9 +32,13 @@ public class LoginPage extends TestBase {
     @FindBy(xpath = "/button[@type='submit']")
     WebElement loginBtn;
 
-    public void login(String un, String pwd)
-    {
+    public void login(String un, String pwd) throws InterruptedException {
 
+        Thread.sleep(2000);
+        //waitAndClick(languageButton,10);
+        //waitAndClick(englishLanguage,10);
+       languageButton.click();
+        englishLanguage.click();
         userNameInput.sendKeys(un);
         passwordInput.sendKeys(pwd);
         loginBtn.click();
